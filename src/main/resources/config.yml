@@ -1,0 +1,52 @@
+#========================#
+#      Config Jobs       #
+#========================#
+Database:
+  host: "localhost"
+  database: "jobs"
+  port: 3306
+  username: "root"
+  password: ""
+jobs-entity:
+  alchemist:
+    level-1-xp: 2000.0
+    level-2-xp: 10000.0
+    level-3-xp: 25000.0
+    level-4-xp: 40000.0
+    level-5-xp: 70000.0
+  fisherman:
+    level-1-xp: 5000.0
+    level-2-xp: 15000.0
+    level-3-xp: 35000.0
+    level-4-xp: 55000.0
+    level-5-xp: 85000.0
+  hunter:
+    level-1-xp: 5000.0
+    level-2-xp: 20000.0
+    level-3-xp: 35000.0
+    level-4-xp: 50000.0
+    level-5-xp: 80000.0
+  lumberjack:
+    level-1-xp: 5000.0
+    level-2-xp: 15000.0
+    level-3-xp: 30000.0
+    level-4-xp: 60000.0
+    level-5-xp: 90000.0
+  minor:
+    level-1-xp: 5000.0
+    level-2-xp: 20000.0
+    level-3-xp: 40000.0
+    level-4-xp: 70000.0
+    level-5-xp: 95000.0
+  peasant:
+    level-1-xp: 5000.0
+    level-2-xp: 15000.0
+    level-3-xp: 30000.0
+    level-4-xp: 40000.0
+    level-5-xp: 75000.0
+  smith:
+    level-1-xp: 5000.0
+    level-2-xp: 15000.0
+    level-3-xp: 25000.0
+    level-4-xp: 40000.0
+    level-5-xp: 70000.0

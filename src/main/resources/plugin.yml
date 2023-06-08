@@ -1,0 +1,11 @@
+name: Jobs
+description: Plugin by Lightnew
+author: Lightnew
+api-version: 1.16
+version: 1.0
+main: fr.lightnew.Jobs
+depend: [ Core ]
+commands:
+  job:
+    aliases:
+      - jobs
