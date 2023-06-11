@@ -34,8 +34,10 @@ public class JobsEvents implements Listener {
 
     public WeakHashMap<Player, Integer> countXP = new WeakHashMap<>();
     public WeakHashMap<Player, Integer> countXPPeasant = new WeakHashMap<>();
+    public WeakHashMap<Player, Integer> countXPLumberjack = new WeakHashMap<>();
     public List<Player> miningProgress = new ArrayList<>();
     public List<Player> peasantProgress = new ArrayList<>();
+    public List<Player> lumberjackProgress = new ArrayList<>();
 
     @EventHandler
     public void alchemistConsume(PlayerItemConsumeEvent event) {
@@ -184,15 +186,15 @@ public class JobsEvents implements Listener {
                     // LumberJack
                     if (Lumberjack.listItems.contains(item)) {
                         Lumberjack lumberjack = jobsManager.getLumberjack();
-                        if (lumberjack.getLevel() != 6)
-                            lumberjack.getGiveXP(player, item);
+                        playerLumberjack(player);
+                        if (countXPLumberjack.containsKey(player))
+                            countXPLumberjack.replace(player, countXPLumberjack.get(player) + lumberjack.getAmountGiveXP(item));
                     }
 
                     // Peasant
                     if (Peasant.listItems.contains(item)) {
                         Peasant peasant = jobsManager.getPeasant();
                         if (peasant.getLevel() != 6) {
-                            //peasant.getGiveXP(player, item);
                             playerPeasant(player);
                             if (countXPPeasant.containsKey(player))
                                 countXPPeasant.replace(player, countXPPeasant.get(player) + peasant.getAmountGiveXP(item));
@@ -249,6 +251,27 @@ public class JobsEvents implements Listener {
                     ObjectsPreset.sendFakeNotification(player, AdvancementAPIFrameType.TASK, Material.DIAMOND_HOE, ChatColor.GOLD + "§l" + "Paysan" + ChatColor.YELLOW + "\n+" + countXPPeasant.get(player) + "xp");
                     countXPPeasant.remove(player);
                     peasantProgress.remove(player);
+                    cancel();
+                }
+                i++;
+            }
+        }.runTaskTimer(Jobs.instance, 0, 20);
+        return true;
+    }
+
+    private boolean playerLumberjack(Player player) {
+        if (lumberjackProgress.contains(player))
+            return false;
+        countXPLumberjack.put(player, 0);
+        lumberjackProgress.add(player);
+        BukkitTask task = new BukkitRunnable() {
+            int i = 0;
+            @Override
+            public void run() {
+                if (i >= 4) {
+                    ObjectsPreset.sendFakeNotification(player, AdvancementAPIFrameType.TASK, Material.DIAMOND_AXE, ChatColor.GOLD + "§l" + "Bucheron" + ChatColor.YELLOW + "\n+" + countXPLumberjack.get(player) + "xp");
+                    countXPLumberjack.remove(player);
+                    lumberjackProgress.remove(player);
                     cancel();
                 }
                 i++;

@@ -174,7 +174,6 @@ public class Peasant {
             return 0;
         }
         int xp = getXPLevel(1, itemStack);
-        Bukkit.broadcastMessage("xp send : " + xp);
         this.xp = this.xp + xp;
         return xp;
     }

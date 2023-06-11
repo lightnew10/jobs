@@ -3,6 +3,7 @@ package fr.lightnew.jobs;
 import fr.lightnew.Jobs;
 import fr.lightnew.component.AdvancementAPIFrameType;
 import fr.lightnew.tools.ObjectsPreset;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -114,6 +115,17 @@ public class Lumberjack {
         } else
         if (getLevel() == (old+1))
             player.sendMessage(ChatColor.YELLOW + "Vous venez de passer au niveau " + ChatColor.GOLD + getLevel() + ChatColor.YELLOW + " dans le métier §6§l" + this.name);
+    }
+
+    public int getAmountGiveXP(ItemStack itemStack) {
+        if (itemStack == null)
+            return 0;
+        if (getXPLevel(1, itemStack) == 0) {
+            return 0;
+        }
+        int xp = getXPLevel(1, itemStack);
+        this.xp = this.xp + xp;
+        return xp;
     }
 
     public int getXP() {return xp;}
