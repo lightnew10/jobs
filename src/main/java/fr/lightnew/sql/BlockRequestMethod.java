@@ -8,6 +8,6 @@ import java.util.List;
 @FunctionalInterface
 public interface BlockRequestMethod {
 
-    public void run(final Chunk parameter, List<Location> locations);
+    public void run(List<Location> locations);
 
 }
