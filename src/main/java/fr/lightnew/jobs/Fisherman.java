@@ -30,103 +30,138 @@ public class Fisherman {
     private int getXPLevel(int level, ItemStack itemStack) {
         // Fish
         if (itemStack.getType().equals(Material.COD)) {
-            if (level == 1)
-                return 20;
-            if (level == 2 || level == 3)
-                return 35;
-            if (level == 4)
-                return 45;
-            if (level == 5)
-                return 50;
+            switch (level) {
+                case 1:
+                    return 20;
+                case 2:
+                case 3:
+                    return 35;
+                case 4:
+                    return 45;
+                case 5:
+                    return 50;
+            }
         }
         if (itemStack.getType().equals(Material.SALMON)) {
-            if (level == 1)
-                return 35;
-            if (level == 2)
-                return 70;
-            if (level == 3)
-                return 100;
-            if (level == 4)
-                return 110;
-            if (level == 5)
-                return 130;
+            switch (level) {
+                case 1:
+                    return 35;
+                case 2:
+                    return 70;
+                case 3:
+                    return 100;
+                case 4:
+                    return 110;
+                case 5:
+                    return 130;
+            }
         }
         if (itemStack.getType().equals(Material.TROPICAL_FISH)) {
-            if (level == 1)
-                return 120;
-            if (level == 2)
-                return 150;
-            if (level == 3 || level == 4 || level == 5)
-                return 175;
+            switch (level) {
+                case 1:
+                    return 120;
+                case 2:
+                    return 150;
+                case 3:
+                case 4:
+                case 5:
+                    return 175;
+            }
         }
         if (itemStack.getType().equals(Material.PUFFERFISH)) {
-            if (level == 1)
-                return 100;
-            if (level == 2)
-                return 190;
-            if (level == 3)
-                return 210;
-            if (level == 4 || level == 5)
-                return 220;
+            switch (level) {
+                case 1:
+                    return 100;
+                case 2:
+                    return 190;
+                case 3:
+                    return 210;
+                case 4:
+                case 5:
+                    return 220;
+            }
         }
         // Treasure
         if (itemStack.getType().equals(Material.BOW)) {
-            if (level == 1)
-                return 45;
-            if (level == 2 || level == 3)
-                return 85;
-            if (level == 4)
-                return 95;
-            if (level == 5)
-                return 120;
+            switch (level) {
+                case 1:
+                    return 45;
+                case 2:
+                case 3:
+                    return 85;
+                case 4:
+                    return 95;
+                case 5:
+                    return 120;
+            }
         }
         if (itemStack.getType().equals(Material.ENCHANTED_BOOK)) {
-            if (level == 1)
-                return 45;
-            if (level == 2 || level == 3)
-                return 90;
-            if (level == 4)
-                return 110;
-            if (level == 5)
-                return 140;
+            switch (level) {
+                case 1:
+                    return 45;
+                case 2:
+                    return 90;
+                case 3:
+                    return 90;
+                case 4:
+                    return 110;
+                case 5:
+                    return 140;
+            }
         }
         if (itemStack.getType().equals(Material.FISHING_ROD)) {
-            if (level == 1)
-                return 30;
-            if (level == 2 || level == 3)
-                return 60;
-            if (level == 4)
-                return 100;
-            if (level == 5)
-                return 120;
+            switch (level) {
+                case 1:
+                    return 30;
+                case 2:
+                    return 60;
+                case 3:
+                    return 60;
+                case 4:
+                    return 100;
+                case 5:
+                    return 120;
+            }
         }
         if (itemStack.getType().equals(Material.NAME_TAG)) {
-            if (level == 1)
-                return 90;
-            if (level == 2 || level == 3)
-                return 135;
-            if (level == 4 || level == 5)
-                return 150;
+            switch (level) {
+                case 1:
+                    return 90;
+                case 2:
+                case 3:
+                    return 135;
+                case 4:
+                case 5:
+                    return 150;
+            }
         }
         if (itemStack.getType().equals(Material.NAUTILUS_SHELL)) {
-            if (level == 1)
-                return 80;
-            if (level == 2 || level == 3)
-                return 140;
-            if (level == 4 || level == 5)
-                return 170;
+            switch (level) {
+                case 1:
+                    return 80;
+                case 2:
+                case 3:
+                    return 140;
+                case 4:
+                case 5:
+                    return 170;
+            }
         }
         if (itemStack.getType().equals(Material.SADDLE)) {
-            if (level == 1)
-                return 100;
-            if (level == 2)
-                return 150;
-            if (level == 3)
-                return 170;
-            if (level == 4 || level == 5)
-                return 200;
+            switch (level) {
+                case 1:
+                    return 100;
+                case 2:
+                    return 150;
+                case 3:
+                    return 170;
+                case 4:
+                case 5:
+                    return 200;
+            }
         }
         // Waste
+        /*
         if (level == 1)
             return 15;
         if (level == 2 || level == 3)
@@ -135,6 +170,7 @@ public class Fisherman {
             return 45;
         if (level == 5)
             return 50;
+        */
         return 0;
     }
 

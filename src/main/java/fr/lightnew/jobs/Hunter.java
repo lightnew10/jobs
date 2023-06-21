@@ -55,83 +55,219 @@ public class Hunter {
     }
 
     private int getXPLevel(int level, EntityType type) {
-        if (type.equals(EntityType.BAT))
-            if (level == 1 || level == 2 || level == 3 || level == 4 || level == 5)
-                return 50;
+        if (type.equals(EntityType.BAT)) {
+            switch (level) {
+                case 1:
+                    return 0;
+                case 2:
+                    return 0;
+                case 3:
+                    return 50;
+                case 4:
+                    return 70;
+                case 5:
+                    return 80;
+            }
+        }
 
-        if (type.equals(EntityType.PIG))
-            if (level == 1 || level == 2 || level == 3 || level == 4 || level == 5)
-                return 5;
+        if (type.equals(EntityType.PIG)) {
+            switch (level) {
+                case 1:
+                case 2:
+                    return 5;
+                case 3:
+                case 4:
+                    return 7;
+                case 5:
+                    return 10;
+            }
+        }
 
-        if (type.equals(EntityType.COW))
-            if (level == 1 || level == 2 || level == 4 || level == 5)
-                return 5;
+        if (type.equals(EntityType.COW)) {
+            switch (level) {
+                case 1:
+                case 2:
+                case 3:
+                    return 5;
+                case 4:
+                    return 7;
+                case 5:
+                    return 10;
+            }
+        }
 
-        if (type.equals(EntityType.RABBIT))
-            if (level == 1 || level == 2 || level == 4 || level == 5)
-                return 45;
+        if (type.equals(EntityType.RABBIT)) {
+            switch (level) {
+                case 1:
+                case 2:
+                    return 30;
+                case 3:
+                    return 50;
+                case 4:
+                    return 60;
+                case 5:
+                    return 70;
+            }
+        }
 
-        if (type.equals(EntityType.TROPICAL_FISH) || type.equals(EntityType.PUFFERFISH) || type.equals(EntityType.SALMON) || type.equals(EntityType.COD))
-            if (level == 1 || level == 2 || level == 3 || level == 4 || level == 5)
-                return 15;
+        if (type.equals(EntityType.TROPICAL_FISH) || type.equals(EntityType.PUFFERFISH) || type.equals(EntityType.SALMON) || type.equals(EntityType.COD)) {
+            switch (level) {
+                case 1:
+                    return 20;
+                case 2:
+                    return 30;
+                case 3:
+                    return 40;
+                case 4:
+                    return 50;
+                case 5:
+                    return 60;
+            }
+        }
 
-        if (type.equals(EntityType.SQUID))
-            if (level == 2 || level == 3 || level == 4 || level == 5)
-                return 20;
+        if (type.equals(EntityType.SQUID)) {
+            switch (level) {
+                case 1:
+                    return 20;
+                case 2:
+                    return 25;
+                case 3:
+                    return 35;
+                case 4:
+                    return 35;
+                case 5:
+                    return 40;
+            }
+        }
 
-        if (type.equals(EntityType.CAT))
-            if (level == 2 || level == 3 || level == 4 || level == 5)
-                return 30;
-        if (type.equals(EntityType.FOX))
-            if (level == 2 || level == 3 || level == 4 || level == 5)
-                return 45;
+        if (type.equals(EntityType.CAT)) {
+            switch (level) {
+                case 1:
+                    return 20;
+                case 2:
+                case 3:
+                    return 30;
+                case 4:
+                    return 35;
+                case 5:
+                    return 40;
+            }
+        }
 
-        if (type.equals(EntityType.MULE))
-            if (level == 3 || level == 4 || level == 5)
-                return 30;
+        if (type.equals(EntityType.FOX)) {
+            switch (level) {
+                case 1:
+                    return 0;
+                case 2:
+                    return 25;
+                case 3:
+                    return 35;
+                case 4:
+                    return 40;
+                case 5:
+                    return 45;
+            }
+        }
 
-        if (type.equals(EntityType.SKELETON_HORSE))
-            if (level == 3 || level == 4 || level == 5)
-                return 70;
+        if (type.equals(EntityType.SKELETON_HORSE)) {
+            switch (level) {
+                case 1:
+                    return 70;
+                case 2:
+                    return 75;
+                case 3:
+                    return 60;
+                case 4:
+                    return 55;
+                case 5:
+                    return 50;
+            }
+        }
 
-        if (type.equals(EntityType.TURTLE))
-            if (level == 3 || level == 4 || level == 5)
-                return 50;
+        if (type.equals(EntityType.TURTLE)) {
+            switch (level) {
+                case 1:
+                case 2:
+                    return 50;
+                case 3:
+                    return 40;
+                case 4:
+                    return 35;
+                case 5:
+                    return 30;
+            }
+        }
 
-        if (type.equals(EntityType.PANDA))
-            if (level == 3 || level == 4 || level == 5)
-                return 25;
+        if (type.equals(EntityType.PANDA)) {
+            switch (level) {
+                case 1:
+                    return 15;
+                case 2:
+                    return 20;
+                case 3:
+                    return 30;
+                case 4:
+                    return 35;
+                case 5:
+                    return 40;
+            }
+        }
 
-        if (type.equals(EntityType.SHEEP))
-            if (level == 4 || level == 5)
-                return 5;
+        if (type.equals(EntityType.SHEEP)) {
+            switch (level) {
+                case 1:
+                    return 0;
+                case 2:
+                    return 0;
+                case 3:
+                    return 50;
+                case 4:
+                    return 70;
+                case 5:
+                    return 80;
+            }
+        }
 
-        if (type.equals(EntityType.CHICKEN))
-            if (level == 4 || level == 5)
-                return 5;
+        if (type.equals(EntityType.CHICKEN)) {
+            switch (level) {
+                case 1:
+                case 2:
+                    return 5;
+                case 3:
+                    return 7;
+                case 4:
+                    return 10;
+                case 5:
+                    return 15;
+            }
+        }
 
-        if (type.equals(EntityType.HORSE))
-            if (level == 4 || level == 5)
-                return 10;
+        if (type.equals(EntityType.STRIDER)) {
+            switch (level) {
+                case 1:
+                case 2:
+                    return 20;
+                case 3:
+                    return 25;
+                case 4:
+                    return 30;
+                case 5:
+                    return 35;
+            }
+        }
 
-        if (type.equals(EntityType.DONKEY))
-            if (level == 4 || level == 5)
-                return 25;
-
-        if (type.equals(EntityType.LLAMA))
-            if (level == 4 || level == 5)
-                return 30;
-
-        if (type.equals(EntityType.PARROT))
-            if (level == 4 || level == 5)
-                return 70;
-
-        if (type.equals(EntityType.STRIDER))
-            if (level == 4 || level == 5)
-                return 20;
-        if (type.equals(EntityType.MUSHROOM_COW))
-            if (level == 5)
-                return 30;
+        if (type.equals(EntityType.MUSHROOM_COW)) {
+            switch (level) {
+                case 1:
+                case 2:
+                case 3:
+                    return 5;
+                case 4:
+                    return 7;
+                case 5:
+                    return 10;
+            }
+        }
 
         return 0;
     }

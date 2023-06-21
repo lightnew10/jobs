@@ -45,110 +45,146 @@ public class Miner {
 
     private int getXPLevel(int level, ItemStack itemStack) {
         if (itemStack.getType().equals(Material.STONE)) {
-            if (level == 1)
-                return 5;
+            switch (level) {
+                case 1:
+                case 2:
+                    return 5;
+                case 3:
+                case 4:
+                case 5:
+                    return 0;
+            }
         }
         if (itemStack.getType().equals(Material.GRANITE)) {
-            if (level == 1)
-                return 5;
+            switch (level) {
+                case 1:
+                case 2:
+                    return 5;
+                case 3:
+                case 4:
+                case 5:
+                    return 0;
+            }
         }
         if (itemStack.getType().equals(Material.COAL_ORE)) {
-            if (level == 1)
-                return 5;
+            switch (level) {
+                case 1:
+                case 2:
+                    return 5;
+                case 3:
+                case 4:
+                case 5:
+                    return 0;
+            }
         }
         if (itemStack.getType().equals(Material.GOLD_ORE)) {
-            if (level == 1)
-                return 30;
-            if (level == 2)
-                return 35;
-            if (level == 3)
-                return 40;
-            if (level == 4)
-                return 45;
-            if (level == 5)
-                return 50;
+            switch (level) {
+                case 1:
+                    return 0;
+                case 2:
+                    return 30;
+                case 3:
+                    return 35;
+                case 4:
+                    return 40;
+                case 5:
+                    return 50;
+            }
         }
         if (itemStack.getType().equals(Material.IRON_ORE)) {
-            if (level == 1)
-                return 10;
-            if (level == 2)
-                return 15;
-            if (level == 3)
-                return 20;
-            if (level == 4)
-                return 30;
-            if (level == 5)
-                return 40;
+            switch (level) {
+                case 1:
+                    return 10;
+                case 2:
+                    return 10;
+                case 3:
+                    return 20;
+                case 4:
+                    return 25;
+                case 5:
+                    return 30;
+            }
         }
         if (itemStack.getType().equals(Material.NETHER_QUARTZ_ORE)) {
-            if (level == 1)
-                return 10;
-            if (level == 2)
-                return 15;
-            if (level == 3)
-                return 20;
-            if (level == 4)
-                return 25;
-            if (level == 5)
-                return 30;
+            switch (level) {
+                case 1:
+                    return 15;
+                case 2:
+                    return 25;
+                case 3:
+                    return 35;
+                case 4:
+                    return 45;
+                case 5:
+                    return 55;
+            }
         }
         if (itemStack.getType().equals(Material.REDSTONE_ORE)) {
-            if (level == 1)
-                return 15;
-            if (level == 2)
-                return 20;
-            if (level == 3)
-                return 30;
-            if (level == 4)
-                return 35;
-            if (level == 5)
-                return 35;
+            switch (level) {
+                case 1:
+                case 2:
+                    return 20;
+                case 3:
+                case 4:
+                    return 25;
+                case 5:
+                    return 30;
+            }
         }
         if (itemStack.getType().equals(Material.LAPIS_ORE)) {
-            if (level == 1)
-                return 25;
-            if (level == 2)
-                return 30;
-            if (level == 3)
-                return 40;
-            if (level == 4)
-                return 45;
-            if (level == 5)
-                return 50;
+            switch (level) {
+                case 1:
+                    return 25;
+                case 2:
+                    return 25;
+                case 3:
+                    return 35;
+                case 4:
+                    return 40;
+                case 5:
+                    return 45;
+            }
         }
         if (itemStack.getType().equals(Material.NETHER_GOLD_ORE)) {
-            if (level == 1)
-                return 30;
-            if (level == 2)
-                return 35;
-            if (level == 3)
-                return 45;
-            if (level == 4)
-                return 55;
-            if (level == 5)
-                return 65;
+            switch (level) {
+                case 1:
+                case 2:
+                    return 15;
+                case 3:
+                    return 30;
+                case 4:
+                    return 35;
+                case 5:
+                    return 40;
+            }
         }
         if (itemStack.getType().equals(Material.DIAMOND_ORE)) {
-            if (level == 1)
-                return 50;
-            if (level == 2)
-                return 50;
-            if (level == 3)
-                return 55;
-            if (level == 4)
-                return 95;
-            if (level == 5)
-                return 120;
+            switch (level) {
+                case 1:
+                    return 35;
+                case 2:
+                    return 40;
+                case 3:
+                    return 45;
+                case 4:
+                    return 50;
+                case 5:
+                    return 60;
+            }
         }
         if (itemStack.getType().equals(Material.EMERALD_ORE)) {
-            if (level == 1 || level == 2)
-                return 90;
-            if (level == 3)
-                return 110;
-            if (level == 4)
-                return 150;
-            if (level == 5)
-                return 200;
+            switch (level) {
+                case 1:
+                    return 70;
+                case 2:
+                    return 75;
+                case 3:
+                    return 80;
+                case 4:
+                    return 90;
+                case 5:
+                    return 95;
+            }
         }
         return 0;
     }

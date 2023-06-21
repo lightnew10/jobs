@@ -41,110 +41,138 @@ public class Peasant {
 
     private int getXPLevel(int level, ItemStack itemStack) {
         if (itemStack.getType().equals(Material.WHEAT)) {
-            if (level == 1 || level == 2)
-                return 10;
-            if (level == 3 || level == 4 || level == 5)
-                return 20;
+            switch (level) {
+                case 1:
+                case 2:
+                    return 10;
+                case 3:
+                case 4:
+                case 5:
+                    return 20;
+            }
         }
         if (itemStack.getType().equals(Material.BEETROOT)) {
-            if (level == 1 || level == 2)
-                return 20;
-            if (level == 3)
-                return 30;
-            if (level == 4)
-                return 35;
-            if (level == 5)
-                return 40;
+            switch (level) {
+                case 1:
+                case 2:
+                    return 20;
+                case 3:
+                    return 30;
+                case 4:
+                    return 35;
+                case 5:
+                    return 40;
+            }
         }
         if (itemStack.getType().equals(Material.POTATO)) {
-            if (level == 1 || level == 2)
-                return 15;
-            if (level == 3)
-                return 25;
-            if (level == 4)
-                return 30;
-            if (level == 5)
-                return 35;
+            switch (level) {
+                case 1:
+                    return 15;
+                case 2:
+                    return 15;
+                case 3:
+                    return 25;
+                case 4:
+                    return 30;
+                case 5:
+                    return 35;
+            }
         }
         if (itemStack.getType().equals(Material.CARROT)) {
-            if (level == 1)
-                return 15;
-            if (level == 2)
-                return 20;
-            if (level == 3 || level == 4)
-                return 25;
-            if (level == 5)
-                return 30;
+            switch (level) {
+                case 1:
+                    return 15;
+                case 2:
+                    return 20;
+                case 3:
+                    return 25;
+                case 4:
+                    return 25;
+                case 5:
+                    return 30;
+            }
         }
         if (itemStack.getType().equals(Material.PUMPKIN)) {
-            if (level == 1)
-                return 30;
-            if (level == 2)
-                return 35;
-            if (level == 3)
-                return 40;
-            if (level == 4)
-                return 45;
-            if (level == 5)
-                return 50;
+            switch (level) {
+                case 1:
+                    return 30;
+                case 2:
+                    return 35;
+                case 3:
+                    return 40;
+                case 4:
+                    return 45;
+                case 5:
+                    return 50;
+            }
         }
         if (itemStack.getType().equals(Material.MELON)) {
-            if (level == 1)
-                return 30;
-            if (level == 2)
-                return 35;
-            if (level == 3)
-                return 40;
-            if (level == 4)
-                return 45;
-            if (level == 5)
-                return 50;
+            switch (level) {
+                case 1:
+                    return 30;
+                case 2:
+                    return 35;
+                case 3:
+                    return 40;
+                case 4:
+                    return 45;
+                case 5:
+                    return 50;
+            }
         }
         if (itemStack.getType().equals(Material.CACTUS)) {
-            if (level == 1)
-                return 50;
-            if (level == 2)
-                return 50;
-            if (level == 3)
-                return 60;
-            if (level == 4)
-                return 70;
-            if (level == 5)
-                return 75;
+            switch (level) {
+                case 1:
+                case 2:
+                    return 50;
+                case 3:
+                    return 60;
+                case 4:
+                    return 70;
+                case 5:
+                    return 75;
+            }
         }
         if (itemStack.getType().equals(Material.COCOA)) {
-            if (level == 1)
-                return 35;
-            if (level == 2)
-                return 40;
-            if (level == 3)
-                return 45;
-            if (level == 4)
-                return 55;
-            if (level == 5)
-                return 35;
+            switch (level) {
+                case 1:
+                    return 35;
+                case 2:
+                    return 40;
+                case 3:
+                    return 45;
+                case 4:
+                    return 55;
+                case 5:
+                    return 65;
+            }
         }
         if (itemStack.getType().equals(Material.BROWN_MUSHROOM) || itemStack.getType().equals(Material.RED_MUSHROOM)) {
-            if (level == 1)
-                return 60;
-            if (level == 2)
-                return 70;
-            if (level == 3)
-                return 80;
-            if (level == 4)
-                return 85;
-            if (level == 5)
-                return 95;
+            switch (level) {
+                case 1:
+                    return 60;
+                case 2:
+                    return 70;
+                case 3:
+                    return 80;
+                case 4:
+                    return 85;
+                case 5:
+                    return 95;
+            }
         }
         if (itemStack.getType().equals(Material.NETHER_WART)) {
-            if (level == 1 || level == 2)
-                return 20;
-            if (level == 3)
-                return 30;
-            if (level == 4)
-                return 45;
-            if (level == 5)
-                return 55;
+            switch (level) {
+                case 1:
+                case 2:
+                    return 20;
+                case 3:
+                    return 30;
+                case 4:
+                    return 45;
+                case 5:
+                    return 55;
+            }
         }
         return 0;
     }

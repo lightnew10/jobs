@@ -41,61 +41,61 @@ public class Lumberjack {
 
     private int getXPLevel(int level, ItemStack itemStack) {
         if (itemStack.getType().equals(Material.OAK_LOG)) {
-            if (level == 1)
-                return 10;
-            if (level == 2)
-                return 20;
-            if (level == 3)
-                return 25;
-            if (level == 4)
-                return 40;
-            if (level == 5)
-                return 50;
+            switch (level) {
+                case 1:
+                case 2:
+                    return 5;
+                case 3:
+                    return 10;
+                case 4:
+                    return 15;
+                case 5:
+                    return 25;
+            }
         }
+
         if (itemStack.getType().equals(Material.SPRUCE_LOG)) {
-            if (level == 1)
-                return 15;
-            if (level == 2)
-                return 20;
-            if (level == 3)
-                return 30;
-            if (level == 4)
-                return 55;
-            if (level == 5)
-                return 65;
+            switch (level) {
+                case 1:
+                case 2:
+                case 3:
+                    return 0;
+                case 4:
+                    return 25;
+                case 5:
+                    return 30;
+            }
         }
+
         if (itemStack.getType().equals(Material.BIRCH_LOG)) {
-            if (level == 1)
-                return 15;
-            if (level == 2)
-                return 20;
-            if (level == 3)
-                return 30;
-            if (level == 4)
-                return 55;
-            if (level == 5)
-                return 65;
+            switch (level) {
+                case 1:
+                case 2:
+                case 3:
+                    return 0;
+                case 4:
+                    return 35;
+                case 5:
+                    return 45;
+            }
         }
+
         if (itemStack.getType().equals(Material.JUNGLE_LOG)) {
-            if (level == 1 || level == 2)
-                return 20;
-            if (level == 3)
-                return 35;
-            if (level == 4)
-                return 65;
-            if (level == 5)
-                return 70;
+            switch (level) {
+                case 1:
+                case 2:
+                case 3:
+                    return 5;
+                case 4:
+                    return 30;
+                case 5:
+                    return 40;
+            }
         }
-        if (itemStack.getType().equals(Material.ACACIA_LOG)) {
-            if (level == 1 || level == 2)
-                return 20;
-            if (level == 3)
-                return 35;
-            if (level == 4)
-                return 65;
-            if (level == 5)
-                return 70;
-        }
+
+        if (itemStack.getType().equals(Material.ACACIA_LOG))
+            return 5;
+        
         return 0;
     }
 

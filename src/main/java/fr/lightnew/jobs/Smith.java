@@ -112,109 +112,162 @@ public class Smith {
 
         // Leather Stuff
         if (itemStack.getType().equals(Material.LEATHER_HELMET) || itemStack.getType().equals(Material.LEATHER_CHESTPLATE)  || itemStack.getType().equals(Material.LEATHER_LEGGINGS) || itemStack.getType().equals(Material.LEATHER_BOOTS)) {
-            if (level == 1)
-                return 10;
-            if (level == 2 || level == 3)
-                return 25;
-            if (level == 4 || level == 5)
-                return 70;
+            switch (level) {
+                case 1:
+                    return 10;
+                case 2:
+                case 3:
+                    return 25;
+                case 4:
+                case 5:
+                    return 70;
+            }
         }
         // Chainmail Stuff
         if (itemStack.getType().equals(Material.CHAINMAIL_HELMET) || itemStack.getType().equals(Material.CHAINMAIL_CHESTPLATE)  || itemStack.getType().equals(Material.CHAINMAIL_LEGGINGS) || itemStack.getType().equals(Material.CHAINMAIL_BOOTS)) {
-            if (level == 1)
-                return 10;
-            if (level == 2 || level == 3)
-                return 20;
-            if (level == 4 || level == 5)
-                return 35;
+            switch (level) {
+                case 1:
+                    return 10;
+                case 2:
+                case 3:
+                    return 20;
+                case 4:
+                case 5:
+                    return 35;
+            }
         }
         // Iron Stuff
         if (itemStack.getType().equals(Material.IRON_HELMET) || itemStack.getType().equals(Material.IRON_CHESTPLATE)  || itemStack.getType().equals(Material.IRON_LEGGINGS) || itemStack.getType().equals(Material.IRON_BOOTS)) {
-            if (level == 1)
-                return 10;
-            if (level == 2 || level == 3)
-                return 25;
-            if (level == 4 || level == 5)
-                return 70;
+            switch (level) {
+                case 1:
+                    return 10;
+                case 2:
+                case 3:
+                    return 25;
+                case 4:
+                case 5:
+                    return 70;
+            }
         }
         // Golden Stuff
         if (itemStack.getType().equals(Material.GOLDEN_HELMET) || itemStack.getType().equals(Material.GOLDEN_CHESTPLATE)  || itemStack.getType().equals(Material.GOLDEN_LEGGINGS) || itemStack.getType().equals(Material.GOLDEN_BOOTS)) {
-            if (level == 1)
-                return 10;
-            if (level == 2 || level == 3)
-                return 25;
-            if (level == 4 || level == 5)
-                return 70;
+            switch (level) {
+                case 1:
+                    return 10;
+                case 2:
+                case 3:
+                    return 25;
+                case 4:
+                case 5:
+                    return 70;
+            }
         }
         // Diamond Stuff
         if (itemStack.getType().equals(Material.DIAMOND_HELMET) || itemStack.getType().equals(Material.DIAMOND_CHESTPLATE)  || itemStack.getType().equals(Material.DIAMOND_LEGGINGS) || itemStack.getType().equals(Material.DIAMOND_BOOTS)) {
-            if (level == 1)
-                return 10;
-            if (level == 2 || level == 3)
-                return 25;
-            if (level == 4 || level == 5)
-                return 50;
+            switch (level) {
+                case 1:
+                    return 10;
+                case 2:
+                case 3:
+                    return 25;
+                case 4:
+                case 5:
+                    return 50;
+            }
         }
         // Netherite Stuff
         if (itemStack.getType().equals(Material.NETHERITE_HELMET) || itemStack.getType().equals(Material.NETHERITE_CHESTPLATE)  || itemStack.getType().equals(Material.NETHERITE_LEGGINGS) || itemStack.getType().equals(Material.NETHERITE_BOOTS)) {
-            if (level == 1)
-                return 10;
-            if (level == 2 || level == 3)
-                return 50;
-            if (level == 4 || level == 5)
-                return 100;
+            switch (level) {
+                case 1:
+                    return 10;
+                case 2:
+                    return 50;
+                case 3:
+                    return 50;
+                case 4:
+                    return 100;
+                case 5:
+                    return 100;
+            }
         }
 
         if (itemStack.getType().equals(Material.NETHERITE_PICKAXE) || itemStack.getType().equals(Material.NETHERITE_AXE) || itemStack.getType().equals(Material.NETHERITE_SHOVEL) || itemStack.getType().equals(Material.NETHERITE_SWORD) || itemStack.getType().equals(Material.NETHERITE_HOE)) {
-            if (level == 3)
-                return 50;
-            if (level == 4)
-                return 150;
-            if (level == 5)
-                return 250;
+            switch (level) {
+                case 1:
+                case 2:
+                    return 0;
+                case 3:
+                    return 50;
+                case 4:
+                    return 150;
+                case 5:
+                    return 250;
+            }
         }
 
         if (itemStack.getType().equals(Material.DIAMOND_PICKAXE) || itemStack.getType().equals(Material.DIAMOND_AXE) || itemStack.getType().equals(Material.DIAMOND_SHOVEL) || itemStack.getType().equals(Material.DIAMOND_SWORD) || itemStack.getType().equals(Material.DIAMOND_HOE)) {
-            if (level == 2 || level == 3)
-                return 75;
-            if (level == 4 || level == 5)
-                return 100;
+            switch (level) {
+                case 1:
+                    return 0;
+                case 2:
+                case 3:
+                    return 25;
+                case 4:
+                case 5:
+                    return 100;
+            }
         }
 
         if (itemStack.getType().equals(Material.GOLDEN_PICKAXE) || itemStack.getType().equals(Material.GOLDEN_AXE) || itemStack.getType().equals(Material.GOLDEN_SHOVEL) || itemStack.getType().equals(Material.GOLDEN_SWORD) || itemStack.getType().equals(Material.GOLDEN_HOE)) {
-            if (level == 1)
-                return 15;
-            if (level == 2 || level == 3)
-                return 25;
-            if (level == 4 || level == 5)
-                return 30;
+            switch (level) {
+                case 1:
+                    return 15;
+                case 2:
+                case 3:
+                    return 25;
+                case 4:
+                case 5:
+                    return 30;
+            }
         }
 
         if (itemStack.getType().equals(Material.IRON_PICKAXE) || itemStack.getType().equals(Material.IRON_AXE) || itemStack.getType().equals(Material.IRON_SHOVEL) || itemStack.getType().equals(Material.IRON_SWORD) || itemStack.getType().equals(Material.IRON_HOE)) {
-            if (level == 1)
-                return 10;
-            if (level == 2 || level == 3)
-                return 20;
-            if (level == 4 || level == 5)
-                return 25;
+            switch (level) {
+                case 1:
+                    return 10;
+                case 2:
+                case 3:
+                    return 20;
+                case 4:
+                case 5:
+                    return 25;
+            }
         }
 
         if (itemStack.getType().equals(Material.STONE_PICKAXE) || itemStack.getType().equals(Material.STONE_AXE) || itemStack.getType().equals(Material.STONE_SHOVEL) || itemStack.getType().equals(Material.STONE_SWORD) || itemStack.getType().equals(Material.STONE_HOE)) {
-            if (level == 1)
-                return 3;
-            if (level == 2 || level == 3)
-                return 5;
-            if (level == 4 || level == 5)
-                return 7;
+            switch (level) {
+                case 1:
+                    return 3;
+                case 2:
+                case 3:
+                    return 5;
+                case 4:
+                case 5:
+                    return 7;
+            }
         }
 
         if (itemStack.getType().equals(Material.WOODEN_PICKAXE) || itemStack.getType().equals(Material.WOODEN_AXE) || itemStack.getType().equals(Material.WOODEN_SHOVEL) || itemStack.getType().equals(Material.WOODEN_SWORD) || itemStack.getType().equals(Material.WOODEN_HOE)) {
-            if (level == 1)
-                return 2;
-            if (level == 2 || level == 3)
-                return 4;
-            if (level == 4 || level == 5)
-                return 7;
+            switch (level) {
+                case 1:
+                    return 2;
+                case 2:
+                case 3:
+                    return 4;
+                case 4:
+                case 5:
+                    return 7;
+            }
         }
 
         return 0;

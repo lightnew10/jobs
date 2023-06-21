@@ -41,44 +41,78 @@ public class Alchemist {
 
     private int getXPLevel(int level, PotionType potionType) {
         if (potionType.equals(PotionType.STRENGTH)) {
-            if (level == 1 || level == 2)
-                return 50;
-            if (level == 3 || level == 4)
-                return 30;
-            if (level == 5)
-                return 20;
+            switch (level) {
+                case 1:
+                case 2:
+                    return 50;
+                case 3:
+                case 4:
+                    return 30;
+                case 5:
+                    return 20;
+            }
         }
         if (potionType.equals(PotionType.REGEN)) {
-            if (level == 1 || level == 2 || level == 3)
-                return 40;
-            if (level == 4)
-                return 30;
-            if (level == 5)
-                return 45;
+            switch (level) {
+                case 1:
+                    return 40;
+                case 2:
+                    return 40;
+                case 3:
+                    return 40;
+                case 4:
+                    return 30;
+                case 5:
+                    return 45;
+            }
         }
         if (potionType.equals(PotionType.SPEED)) {
-            if (level == 2)
-                return 25;
-            if (level == 3)
-                return 15;
-            if (level == 4)
-                return 20;
-            if (level == 5)
-                return 30;
+            switch (level) {
+                case 1:
+                    return 0;
+                case 2:
+                    return 15;
+                case 3:
+                    return 20;
+                case 4:
+                    return 30;
+                case 5:
+                    return 80;
+            }
         }
         if (potionType.equals(PotionType.INSTANT_HEAL)) {
-            if (level == 3)
-                return 50;
-            if (level == 4 || level == 5)
-                return 40;
+            switch (level) {
+                case 1:
+                case 2:
+                    return 0;
+                case 3:
+                    return 50;
+                case 4:
+                case 5:
+                    return 40;
+            }
         }
         if (potionType.equals(PotionType.FIRE_RESISTANCE)) {
-            if (level == 4 || level == 5)
-                return 50;
+            switch (level) {
+                case 1:
+                case 2:
+                case 3:
+                    return 0;
+                case 4:
+                case 5:
+                    return 50;
+            }
         }
         if (potionType.equals(PotionType.POISON)) {
-            if (level == 4 || level == 5)
-                return 30;
+            switch (level) {
+                case 1:
+                case 2:
+                case 3:
+                    return 0;
+                case 4:
+                case 5:
+                    return 30;
+            }
         }
         return 0;
     }
@@ -103,21 +137,6 @@ public class Alchemist {
     }
 
     public void giveRewards(int level) {
-        if (level == 2) {
-
-        }
-        if (level == 3) {
-
-        }
-        if (level == 4) {
-
-        }
-        if (level == 5) {
-
-        }
-        if (level == 6) {
-
-        }
     }
 
     public int getXP() {return xp;}
