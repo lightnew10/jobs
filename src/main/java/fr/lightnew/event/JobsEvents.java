@@ -3,8 +3,6 @@ package fr.lightnew.event;
 import fr.lightnew.Jobs;
 import fr.lightnew.component.AdvancementAPIFrameType;
 import fr.lightnew.jobs.*;
-import fr.lightnew.sql.DBWorker;
-import fr.lightnew.sql.RequestsSQL;
 import fr.lightnew.tools.GUIJobs;
 import fr.lightnew.tools.ObjectsPreset;
 import org.bukkit.*;
@@ -28,11 +26,13 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class JobsEvents implements Listener {
 
     public WeakHashMap<Player, Integer> countXP = new WeakHashMap<>();
+    public WeakHashMap<Player, Integer> miningProgressTime = new WeakHashMap<>();
+    public WeakHashMap<Player, Integer> peasantProgressTime = new WeakHashMap<>();
+    public WeakHashMap<Player, Integer> lumberjackProgressTime = new WeakHashMap<>();
     public WeakHashMap<Player, Integer> countXPPeasant = new WeakHashMap<>();
     public WeakHashMap<Player, Integer> countXPLumberjack = new WeakHashMap<>();
     public List<Player> miningProgress = new ArrayList<>();
@@ -156,11 +156,10 @@ public class JobsEvents implements Listener {
     public void placeBlock(BlockPlaceEvent event) {
         List<ItemStack> listWitheList = new ArrayList<>();
         listWitheList.addAll(Lumberjack.listItems);
-        listWitheList.addAll(Minor.listItems);
+        listWitheList.addAll(Miner.listItems);
         listWitheList.addAll(Peasant.listItems);
         if (listWitheList.contains(new ItemStack(event.getBlockPlaced().getType())))
-            Jobs.dbWorker.put(event.getBlockPlaced().getChunk(), event.getBlockPlaced().getLocation());
-
+            Jobs.dbWorker.put(event.getBlockPlaced().getLocation());
     }
 
     @EventHandler
@@ -170,18 +169,13 @@ public class JobsEvents implements Listener {
         JobsManager jobsManager = Jobs.playersJobs.get(player);
         List<ItemStack> listWitheList = new ArrayList<>();
         listWitheList.addAll(Lumberjack.listItems);
-        listWitheList.addAll(Minor.listItems);
+        listWitheList.addAll(Miner.listItems);
         listWitheList.addAll(Peasant.listItems);
 
         if (listWitheList.contains(item)) {
-            HashMap<Chunk, Location> list = new HashMap<>();
-            Jobs.dbWorker.get(event.getBlock().getChunk(), (parameter, locations) -> {
-                for (Location loc : locations) {
-                    list.put(parameter, loc);
-                }
-
-                if (isBlockBreaByPlayer(list, event.getBlock().getChunk(), event.getBlock().getLocation())) {
-                    Jobs.dbWorker.remove(event.getBlock().getChunk(), event.getBlock().getLocation());
+            Jobs.dbWorker.get(locations -> {
+                if (locations.contains(event.getBlock().getLocation())) {
+                    Jobs.dbWorker.remove(event.getBlock().getLocation());
                 } else {
                     // LumberJack
                     if (Lumberjack.listItems.contains(item)) {
@@ -202,12 +196,12 @@ public class JobsEvents implements Listener {
                     }
 
                     // Minor
-                    if (Minor.listItems.contains(item)) {
-                        Minor minor = jobsManager.getMinor();
-                        if (minor.getLevel() != 6) {
-                            playerMinming(player);
+                    if (Miner.listItems.contains(item)) {
+                        Miner miner = jobsManager.getMinor();
+                        if (miner.getLevel() != 6) {
+                            PlayerMining(player);
                             if (countXP.containsKey(player))
-                                countXP.replace(player, countXP.get(player) + minor.getAmountGiveXP(item));
+                                countXP.replace(player, countXP.get(player) + miner.getAmountGiveXP(item));
                         }
                     }
                 }
@@ -217,66 +211,83 @@ public class JobsEvents implements Listener {
     }
 
 
-    private boolean playerMinming(Player player) {
-        if (miningProgress.contains(player))
+    private boolean PlayerMining(Player player) {
+        if (miningProgress.contains(player)) {
+            miningProgressTime.replace(player, miningProgressTime.get(player), 1);
             return false;
-        countXP.put(player, 0);
-        miningProgress.add(player);
+        } else {
+            miningProgressTime.put(player, 1);
+            countXP.put(player, 1);
+            miningProgress.add(player);
+        }
         BukkitTask task = new BukkitRunnable() {
-            int i = 0;
             @Override
             public void run() {
+                int i = miningProgressTime.get(player);
                 if (i >= 5) {
                     ObjectsPreset.sendFakeNotification(player, AdvancementAPIFrameType.TASK, Material.DIAMOND_PICKAXE, ChatColor.GOLD + "§l" + "Mineur" + ChatColor.YELLOW + "\n+" + countXP.get(player) + "xp");
                     countXP.remove(player);
                     miningProgress.remove(player);
+                    miningProgressTime.remove(player);
                     cancel();
                 }
                 i++;
+                miningProgressTime.replace(player, miningProgressTime.get(player), i);
             }
-        }.runTaskTimer(Jobs.instance, 0, 20);
+        }.runTaskTimer(Jobs.instance, 0, 10);
         return true;
     }
 
     private boolean playerPeasant(Player player) {
-        if (peasantProgress.contains(player))
+        if (peasantProgress.contains(player)) {
+            peasantProgressTime.replace(player, peasantProgressTime.get(player), 1);
             return false;
-        countXPPeasant.put(player, 0);
-        peasantProgress.add(player);
+        } else {
+            peasantProgressTime.put(player, 1);
+            countXPPeasant.put(player, 1);
+            peasantProgress.add(player);
+        }
         BukkitTask task = new BukkitRunnable() {
-            int i = 0;
             @Override
             public void run() {
-                if (i >= 4) {
+                int i = peasantProgressTime.get(player);
+                if (i >= 3) {
                     ObjectsPreset.sendFakeNotification(player, AdvancementAPIFrameType.TASK, Material.DIAMOND_HOE, ChatColor.GOLD + "§l" + "Paysan" + ChatColor.YELLOW + "\n+" + countXPPeasant.get(player) + "xp");
                     countXPPeasant.remove(player);
                     peasantProgress.remove(player);
+                    peasantProgressTime.remove(player);
                     cancel();
                 }
                 i++;
+                peasantProgressTime.replace(player, peasantProgressTime.get(player), i);
             }
-        }.runTaskTimer(Jobs.instance, 0, 20);
+        }.runTaskTimer(Jobs.instance, 0, 10);
         return true;
     }
 
     private boolean playerLumberjack(Player player) {
-        if (lumberjackProgress.contains(player))
+        if (lumberjackProgress.contains(player)) {
+            lumberjackProgressTime.replace(player, lumberjackProgressTime.get(player), 1);
             return false;
-        countXPLumberjack.put(player, 0);
-        lumberjackProgress.add(player);
+        } else {
+            countXPLumberjack.put(player, 1);
+            lumberjackProgress.add(player);
+            lumberjackProgressTime.put(player, 1);
+        }
         BukkitTask task = new BukkitRunnable() {
-            int i = 0;
             @Override
             public void run() {
-                if (i >= 4) {
+                int i = lumberjackProgressTime.get(player);
+                if (i >= 3) {
                     ObjectsPreset.sendFakeNotification(player, AdvancementAPIFrameType.TASK, Material.DIAMOND_AXE, ChatColor.GOLD + "§l" + "Bucheron" + ChatColor.YELLOW + "\n+" + countXPLumberjack.get(player) + "xp");
                     countXPLumberjack.remove(player);
                     lumberjackProgress.remove(player);
                     cancel();
                 }
                 i++;
+                lumberjackProgressTime.replace(player, lumberjackProgressTime.get(player), i);
             }
-        }.runTaskTimer(Jobs.instance, 0, 20);
+        }.runTaskTimer(Jobs.instance, 0, 10);
         return true;
     }
 
