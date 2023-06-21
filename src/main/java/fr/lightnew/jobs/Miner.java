@@ -189,15 +189,16 @@ public class Miner {
         return 0;
     }
 
-    public int getGiveXP(Player player, ItemStack itemStack) {
+    public int getGiveXP(Player player, ItemStack itemStack, boolean enableNotif) {
         if (itemStack == null)
             return 0;
         if (getXPLevel(1, itemStack) == 0) {
             return 0;
         }
         int xp = getXPLevel(1, itemStack);
-        if (Jobs.playersJobs.get(player).getNotification())
-            ObjectsPreset.sendFakeNotification(player, AdvancementAPIFrameType.TASK, Material.DIAMOND_PICKAXE, ChatColor.GOLD + "§l" + name + ChatColor.YELLOW + "\n+" + xp + "xp");
+        if (enableNotif)
+            if (Jobs.playersJobs.get(player).getNotification())
+                ObjectsPreset.sendFakeNotification(player, AdvancementAPIFrameType.TASK, Material.DIAMOND_PICKAXE, ChatColor.GOLD + "§l" + name + ChatColor.YELLOW + "\n+" + xp + "xp");
         int old = getLevel();
         this.xp = this.xp + xp;
         if ((old + 1) == 6) {
@@ -205,7 +206,7 @@ public class Miner {
         } else
         if (getLevel() == (old+1))
             player.sendMessage(ChatColor.YELLOW + "Vous venez de passer au niveau " + ChatColor.GOLD + getLevel() + ChatColor.YELLOW + " dans le métier §6§l" + this.name);
-        return xp;
+        return (xp-1);
     }
 
     public int getAmountGiveXP(ItemStack itemStack) {

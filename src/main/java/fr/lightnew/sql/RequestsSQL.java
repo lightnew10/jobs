@@ -5,7 +5,6 @@ import fr.lightnew.jobs.*;
 import fr.lightnew.tools.ObjectsPreset;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
@@ -137,7 +136,7 @@ public class RequestsSQL {
             insert.setInt(4, manager.getFisherman().getXP());
             insert.setInt(5, manager.getHunter().getXP());
             insert.setInt(6, manager.getLumberjack().getXP());
-            insert.setInt(7, manager.getMinor().getXP());
+            insert.setInt(7, manager.getMiner().getXP());
             insert.setInt(8, manager.getPeasant().getXP());
             insert.setInt(9, manager.getSmithing().getXP());
 

@@ -55,7 +55,7 @@ public class JobsManager {
         return lumberjack;
     }
 
-    public Miner getMinor() {
+    public Miner getMiner() {
         return miner;
     }
 

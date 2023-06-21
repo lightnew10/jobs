@@ -177,7 +177,7 @@ public class Peasant {
         return 0;
     }
 
-    public int getGiveXP(Player player, ItemStack itemStack) {
+    public int getGiveXP(Player player, ItemStack itemStack, boolean enableNotif) {
         if (itemStack == null)
             return 0;
         if (getXPLevel(1, itemStack) == 0) {
@@ -193,7 +193,7 @@ public class Peasant {
         } else
         if (getLevel() == (old+1))
             player.sendMessage(ChatColor.YELLOW + "Vous venez de passer au niveau " + ChatColor.GOLD + getLevel() + ChatColor.YELLOW + " dans le métier §6§l" + this.name);
-        return xp;
+        return (xp-1);
     }
 
     public int getAmountGiveXP(ItemStack itemStack) {

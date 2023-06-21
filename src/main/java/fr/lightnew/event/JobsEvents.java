@@ -182,7 +182,7 @@ public class JobsEvents implements Listener {
                         Lumberjack lumberjack = jobsManager.getLumberjack();
                         playerLumberjack(player);
                         if (countXPLumberjack.containsKey(player))
-                            countXPLumberjack.replace(player, countXPLumberjack.get(player) + lumberjack.getGiveXP(player, item));
+                            countXPLumberjack.replace(player, countXPLumberjack.get(player) + lumberjack.getGiveXP(player, item, false));
                     }
 
                     // Peasant
@@ -191,17 +191,17 @@ public class JobsEvents implements Listener {
                         if (peasant.getLevel() != 6) {
                             playerPeasant(player);
                             if (countXPPeasant.containsKey(player))
-                                countXPPeasant.replace(player, countXPPeasant.get(player) + peasant.getGiveXP(player, item));
+                                countXPPeasant.replace(player, countXPPeasant.get(player) + peasant.getGiveXP(player, item, false));
                         }
                     }
 
                     // Minor
                     if (Miner.listItems.contains(item)) {
-                        Miner miner = jobsManager.getMinor();
+                        Miner miner = jobsManager.getMiner();
                         if (miner.getLevel() != 6) {
                             PlayerMining(player);
                             if (countXP.containsKey(player))
-                                countXP.replace(player, countXP.get(player) + miner.getGiveXP(player, item));
+                                countXP.replace(player, countXP.get(player) + miner.getGiveXP(player, item, false));
                         }
                     }
                 }

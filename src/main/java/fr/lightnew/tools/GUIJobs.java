@@ -20,7 +20,7 @@ public class GUIJobs {
         String[] xpBarFisherman = xpBar(jobsManager.getFisherman().getXP(), jobsManager.getFisherman().getXPMAXLevel(), 10);
         String[] xpBarHunter = xpBar(jobsManager.getHunter().getXP(), jobsManager.getHunter().getXPMAXLevel(), 10);
         String[] xpBarLumberjack = xpBar(jobsManager.getLumberjack().getXP(), jobsManager.getLumberjack().getXPMAXLevel(), 10);
-        String[] xpBarMinor = xpBar(jobsManager.getMinor().getXP(), jobsManager.getMinor().getXPMAXLevel(), 10);
+        String[] xpBarMinor = xpBar(jobsManager.getMiner().getXP(), jobsManager.getMiner().getXPMAXLevel(), 10);
         String[] xpBarPeasant = xpBar(jobsManager.getPeasant().getXP(), jobsManager.getPeasant().getXPMAXLevel(), 10);
         String[] xpBarSmith = xpBar(jobsManager.getSmithing().getXP(), jobsManager.getSmithing().getXPMAXLevel(), 10);
 
@@ -35,7 +35,7 @@ public class GUIJobs {
         ItemStack FISHERMAN = ItemBuilder.create(Material.COD, 1, ChatColor.YELLOW + "Pêcheur Nv" + ChatColor.GOLD + "" + jobsManager.getFisherman().getLevel(), xpBarFisherman[0], ChatColor.YELLOW + "" + jobsManager.getFisherman().getXP() + ChatColor.GRAY + "/" + ChatColor.GOLD + jobsManager.getFisherman().getXPMAXLevel() + ChatColor.GRAY + " (" + xpBarFisherman[1] + "%)");
         ItemStack HUNTER = ItemBuilder.create(Material.SKELETON_SKULL, 1, ChatColor.YELLOW + "Chasseur Nv" + ChatColor.GOLD + "" + jobsManager.getHunter().getLevel(), xpBarHunter[0], ChatColor.YELLOW + "" + jobsManager.getHunter().getXP() + ChatColor.GRAY + "/" + ChatColor.GOLD + jobsManager.getHunter().getXPMAXLevel() + ChatColor.GRAY + " (" + xpBarHunter[1] + "%)");
         ItemStack LUMBERJACK = ItemBuilder.create(Material.OAK_LOG, 1, ChatColor.YELLOW + "Bucheron Nv" + ChatColor.GOLD + "" + jobsManager.getLumberjack().getLevel(), xpBarLumberjack[0], ChatColor.YELLOW + "" + jobsManager.getLumberjack().getXP() + ChatColor.GRAY + "/" + ChatColor.GOLD + jobsManager.getLumberjack().getXPMAXLevel() + ChatColor.GRAY + " (" + xpBarLumberjack[1] + "%)");
-        ItemStack MINOR = ItemBuilder.create(Material.DIAMOND_ORE, 1, ChatColor.YELLOW + "Mineur Nv" + ChatColor.GOLD + "" + jobsManager.getMinor().getLevel(), xpBarMinor[0], ChatColor.YELLOW + "" + jobsManager.getMinor().getXP() + ChatColor.GRAY + "/" + ChatColor.GOLD + jobsManager.getMinor().getXPMAXLevel() + ChatColor.GRAY + " (" + xpBarMinor[1] + "%)");;
+        ItemStack MINOR = ItemBuilder.create(Material.DIAMOND_ORE, 1, ChatColor.YELLOW + "Mineur Nv" + ChatColor.GOLD + "" + jobsManager.getMiner().getLevel(), xpBarMinor[0], ChatColor.YELLOW + "" + jobsManager.getMiner().getXP() + ChatColor.GRAY + "/" + ChatColor.GOLD + jobsManager.getMiner().getXPMAXLevel() + ChatColor.GRAY + " (" + xpBarMinor[1] + "%)");;
         ItemStack PEASANT = ItemBuilder.create(Material.WHEAT, 1, ChatColor.YELLOW + "Paysan Nv" + ChatColor.GOLD + "" + jobsManager.getPeasant().getLevel(), xpBarPeasant[0], ChatColor.YELLOW + "" + jobsManager.getPeasant().getXP() + ChatColor.GRAY + "/" + ChatColor.GOLD + jobsManager.getPeasant().getXPMAXLevel() + ChatColor.GRAY + " (" + xpBarPeasant[1] + "%)");
         ItemStack SMITH = ItemBuilder.create(Material.FURNACE, 1, ChatColor.YELLOW + "Forgeron Nv" + ChatColor.GOLD + "" + jobsManager.getSmithing().getLevel(), xpBarSmith[0], ChatColor.YELLOW + "" + jobsManager.getSmithing().getXP() + ChatColor.GRAY + "/" + ChatColor.GOLD + jobsManager.getSmithing().getXPMAXLevel() + ChatColor.GRAY + " (" + xpBarSmith[1] + "%)");
 
