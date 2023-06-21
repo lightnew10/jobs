@@ -48,9 +48,6 @@ public class RequestsSQL {
                             "PRIMARY KEY (id));";
             String BreakBlock =
                     "CREATE TABLE IF NOT EXISTS breakblock(id int NOT NULL AUTO_INCREMENT," +
-                            "chunk_world VARCHAR(255) NOT NULL," +
-                            "chunk_x INT NOT NULL," +
-                            "chunk_z INT NOT NULL," +
                             "location_world VARCHAR(255) NOT NULL," +
                             "location_x INT NOT NULL," +
                             "location_y INT NOT NULL," +
@@ -92,7 +89,7 @@ public class RequestsSQL {
                         new Fisherman(result.getInt("fisherman_xp")),
                         new Hunter(result.getInt("hunter_xp")),
                         new Lumberjack(result.getInt("lumberjack_xp")),
-                        new Minor(result.getInt("minor_xp")),
+                        new Miner(result.getInt("minor_xp")),
                         new Peasant(result.getInt("peasant_xp")),
                         new Smith(result.getInt("smithing_xp"))
                 );
@@ -151,12 +148,9 @@ public class RequestsSQL {
         }
     }
 
-    public static List<Location> getLocationBlockPosed(Chunk chunk) {
+    public static List<Location> getLocationBlockPosed() {
         try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM breakblock WHERE chunk_world=? AND chunk_x=? AND chunk_z=?");
-            statement.setString(1, chunk.getWorld().getName());
-            statement.setInt(2, chunk.getX());
-            statement.setInt(3, chunk.getZ());
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM breakblock");
             ResultSet result = statement.executeQuery();
             List<Location> locs = new ArrayList<>();
             while (result.next())
@@ -167,19 +161,14 @@ public class RequestsSQL {
         }
     }
 
-    public static void setLocationBlockPosed(Chunk chunk, Location location) {
+    public static void setLocationBlockPosed(Location location) {
         try {
-            PreparedStatement insert = connection.prepareStatement("INSERT INTO breakblock(" +
-                    "chunk_world, chunk_x, chunk_z, location_world, location_x, location_y, location_z)" +
-                    "values (?,?,?,?,?,?,?)");
+            PreparedStatement insert = connection.prepareStatement("INSERT INTO breakblock(location_world, location_x, location_y, location_z)" + "values (?,?,?,?)");
 
-            insert.setString(1, chunk.getWorld().getName());
-            insert.setInt(2, chunk.getX());
-            insert.setInt(3, chunk.getZ());
-            insert.setString(4, location.getWorld().getName());
-            insert.setInt(5, location.getBlockX());
-            insert.setInt(6, location.getBlockY());
-            insert.setInt(7, location.getBlockZ());
+            insert.setString(1, location.getWorld().getName());
+            insert.setInt(2, location.getBlockX());
+            insert.setInt(3, location.getBlockY());
+            insert.setInt(4, location.getBlockZ());
 
             insert.executeUpdate();
         } catch (SQLException e) {
@@ -187,17 +176,14 @@ public class RequestsSQL {
         }
     }
 
-    public static void removeLocationBlockPosed(Chunk chunk, Location location) {
+    public static void removeLocationBlockPosed(Location location) {
         try {
-            String query = "DELETE FROM breakblock WHERE chunk_world = ? AND chunk_x = ? AND chunk_z = ? AND location_world = ? AND location_x = ? AND location_y = ? AND location_z = ?";
+            String query = "DELETE FROM breakblock WHERE location_world = ? AND location_x = ? AND location_y = ? AND location_z = ?";
             PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, chunk.getWorld().getName());
-            statement.setInt(2, chunk.getX());
-            statement.setInt(3, chunk.getZ());
-            statement.setString(4, location.getWorld().getName());
-            statement.setInt(5, location.getBlockX());
-            statement.setInt(6, location.getBlockY());
-            statement.setInt(7, location.getBlockZ());
+            statement.setString(1, location.getWorld().getName());
+            statement.setInt(2, location.getBlockX());
+            statement.setInt(3, location.getBlockY());
+            statement.setInt(4, location.getBlockZ());
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
