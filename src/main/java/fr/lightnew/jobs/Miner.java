@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 // Mineur
-public class Minor {
+public class Miner {
 
     private int xp;
     private String name = "Mineur";
@@ -35,7 +35,7 @@ public class Minor {
             new ItemStack(Material.EMERALD_ORE)
     );
 
-    public Minor(int xp) {
+    public Miner(int xp) {
         this.xp  = xp;
     }
 
