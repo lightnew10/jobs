@@ -272,11 +272,11 @@ public class Hunter {
         return 0;
     }
 
-    public void getGiveXP(Player player, EntityType type) {
+    public int getGiveXP(Player player, EntityType type) {
         if (type == null)
-            return;
+            return 0;
         if (getXPLevel(1, type) == 0) {
-            return;
+            return 0;
         }
         int xp = getXPLevel(1, type);
         if (Jobs.playersJobs.get(player).getNotification())
@@ -288,6 +288,7 @@ public class Hunter {
         } else
         if (getLevel() == (old+1))
             player.sendMessage(ChatColor.YELLOW + "Vous venez de passer au niveau " + ChatColor.GOLD + getLevel() + ChatColor.YELLOW + " dans le métier §6§l" + this.name);
+        return xp;
     }
 
     public int getXP() {return xp;}

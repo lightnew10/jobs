@@ -189,11 +189,11 @@ public class Miner {
         return 0;
     }
 
-    public void getGiveXP(Player player, ItemStack itemStack) {
+    public int getGiveXP(Player player, ItemStack itemStack) {
         if (itemStack == null)
-            return;
+            return 0;
         if (getXPLevel(1, itemStack) == 0) {
-            return;
+            return 0;
         }
         int xp = getXPLevel(1, itemStack);
         if (Jobs.playersJobs.get(player).getNotification())
@@ -205,6 +205,7 @@ public class Miner {
         } else
         if (getLevel() == (old+1))
             player.sendMessage(ChatColor.YELLOW + "Vous venez de passer au niveau " + ChatColor.GOLD + getLevel() + ChatColor.YELLOW + " dans le métier §6§l" + this.name);
+        return xp;
     }
 
     public int getAmountGiveXP(ItemStack itemStack) {

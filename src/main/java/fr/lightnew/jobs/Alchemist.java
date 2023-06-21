@@ -136,9 +136,6 @@ public class Alchemist {
             }
     }
 
-    public void giveRewards(int level) {
-    }
-
     public int getXP() {return xp;}
 
     public int getXPMAXLevel() {

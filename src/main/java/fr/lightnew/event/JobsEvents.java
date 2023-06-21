@@ -182,7 +182,7 @@ public class JobsEvents implements Listener {
                         Lumberjack lumberjack = jobsManager.getLumberjack();
                         playerLumberjack(player);
                         if (countXPLumberjack.containsKey(player))
-                            countXPLumberjack.replace(player, countXPLumberjack.get(player) + lumberjack.getAmountGiveXP(item));
+                            countXPLumberjack.replace(player, countXPLumberjack.get(player) + lumberjack.getGiveXP(player, item));
                     }
 
                     // Peasant
@@ -191,7 +191,7 @@ public class JobsEvents implements Listener {
                         if (peasant.getLevel() != 6) {
                             playerPeasant(player);
                             if (countXPPeasant.containsKey(player))
-                                countXPPeasant.replace(player, countXPPeasant.get(player) + peasant.getAmountGiveXP(item));
+                                countXPPeasant.replace(player, countXPPeasant.get(player) + peasant.getGiveXP(player, item));
                         }
                     }
 
@@ -201,7 +201,7 @@ public class JobsEvents implements Listener {
                         if (miner.getLevel() != 6) {
                             PlayerMining(player);
                             if (countXP.containsKey(player))
-                                countXP.replace(player, countXP.get(player) + miner.getAmountGiveXP(item));
+                                countXP.replace(player, countXP.get(player) + miner.getGiveXP(player, item));
                         }
                     }
                 }
@@ -282,6 +282,7 @@ public class JobsEvents implements Listener {
                     ObjectsPreset.sendFakeNotification(player, AdvancementAPIFrameType.TASK, Material.DIAMOND_AXE, ChatColor.GOLD + "§l" + "Bucheron" + ChatColor.YELLOW + "\n+" + countXPLumberjack.get(player) + "xp");
                     countXPLumberjack.remove(player);
                     lumberjackProgress.remove(player);
+                    lumberjackProgressTime.remove(player);
                     cancel();
                 }
                 i++;
